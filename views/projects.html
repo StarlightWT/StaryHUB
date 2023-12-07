@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Projects</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<nav id="replace_nav"></nav>
+
+		<div class="project_list">
+			<div class="project_item" onclick="select('grade_calc')">
+				<img src="/resources/images/gradeCalc.png" alt="" class="item_image" />
+				<div class="tags">
+					<div class="tag JS">JavaScript</div>
+					<div class="tag HTML">HTML</div>
+					<div class="tag CSS">CSS</div>
+				</div>
+				<h1 class="item_title">Grade calculator</h1>
+			</div>
+			<div class="project_item hidden"></div>
+			<div class="project_item hidden"></div>
+			<div class="project_item hidden"></div>
+		</div>
+		<script src="/resources/projects_script.js"></script>
+		<script src="/script.js">
+			setTagColor();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap");
+@import url("/resources/hightlight.css");
+.container {
+	margin-top: 1rem;
+	width: 90vw;
+	margin-inline: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.project_info {
+	background-color: var(--secondary-bg-colour);
+	width: 30vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 0.5rem;
+}
+
+.project_info h1 {
+	margin: 0;
+	width: 95%;
+	margin-inline: auto;
+	text-align: center;
+	border-bottom: 2px solid white;
+	padding: 0;
+}
+
+.project_info h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 1.2rem;
+}
+
+.project_info p {
+	padding-inline: 1rem;
+	text-align: justify;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+}
+
+.links a {
+	text-decoration: none;
+	padding: 0.5rem;
+	width: 90%;
+	background-color: var(--background-colour);
+	margin-inline: auto;
+	border-radius: 0.25rem;
+	margin-bottom: 0.5rem;
+	color: inherit;
+	transition-duration: 250ms;
+}
+
+.project_info a:hover {
+	background-color: var(--accent-colour);
+	transition-duration: 250ms;
+}
+
+.project_images {
+	width: 55vw;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--secondary-bg-colour);
+}
+
+.project_images h1 {
+	width: 100%;
+	text-align: center;
+	border-bottom: 2px solid white;
+	margin: 0;
+	margin-bottom: 0.5rem;
+	padding: 0;
+}
+
+.project_code {
+	width: 90vw;
+	height: 200px;
+	margin-top: 1rem;
+	margin-inline: auto;
+	font-family: "Fira Code", monospace;
+}
+.code_block {
+	background-color: var(--background-colour);
+	width: 95%;
+	margin-inline: auto;
+	border-color: lightgray;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+.code_block h6 {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+	color: var(--accent-colour);
+	width: 100%;
+	border-bottom: solid white 2px;
+	user-select: none;
+}
+
+.code_block p {
+	--height: 100px;
+	margin: 0;
+}
+.code_block code {
+	line-height: 16px;
+	font-size: 16px;
+	line-height-step: 0;
+	white-space: pre;
+	text-wrap: nowrap;
+	font-family: inherit;
+}
+
+.collapsed {
+	height: 0px;
+	transition-duration: 1s;
+	overflow: hidden;
+}
+
+.expanded {
+	height: var(--height);
+	overflow: hidden;
+	transition-duration: 1s;
+}

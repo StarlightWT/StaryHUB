@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Grade Calculator</title>
+		<link rel="stylesheet" href="/style.css" />
+		<link rel="stylesheet" href="project.css" />
+	</head>
+	<body>
+		<nav id="replace_nav"></nav>
+		<div class="container">
+			<div class="project_info">
+				<div class="info">
+					<h1>Grade Calculator</h1>
+					<h2>Calculator for average grade</h2>
+					<p>
+						The calculator was made for easier calculation of avg. grade prior
+						to being given the grade. It's also helped me learn more html, css
+						and how to interact with a website using js.
+					</p>
+					<p>
+						The way it calculates the grade is by taking it's initial value so
+						in the case of a 3 it'd be 3.00 multiplies it by it's weight, let's
+						say 80 and then divides all of the grades by their total weight.
+						Meaning if you'd put in grades 2(80 weight), 3- (20 weight) and
+						1(100 weight) the total weight would be 200 and the grade there for
+						would be (2*80+3.33*20+1*100 )/200 = 1.63
+					</p>
+				</div>
+				<div class="links">
+					<a href="https://github.com/StarlightWT/GradeCalculator"
+						>Project's repository</a
+					>
+					<a href="https://starlightwt.github.io/GradeCalculator/"
+						>Project's website</a
+					>
+				</div>
+			</div>
+			<div class="project_images">
+				<h1>Images</h1>
+				<img src="/resources/images/fullGradeCalculator.png" alt="" />
+			</div>
+		</div>
+		<div class="project_code">
+			<div class="code_block">
+				<h6 onclick="toggleExpand(this)">main.js</h6>
+				<p class="collapsed">
+					<!-- prettier-ignore -->
+					<code>var grade = null;
+var grades = [];
+var weights = [];
+var lastElement;
+function addGrade() {
+    const output = document.getElementById("output_grades");
+    let gradeElement = document.createElement("li");
+    let weight = document.getElementById("weight").value;
+    if (weight > 0 && weight < 1) weight *= 100;
+    gradeElement.innerHTML = `${selectedGrade} (${weight}%)`;
+    if (!(selectedGrade != null && weight > 0 && weight <= 100)) return;
+    output.append(gradeElement);
+    //translate grade to an actual number for calculations
+    console.log(selectedGrade);
+    switch (selectedGrade) {
+        case "1":
+            grade = 1;
+            break;
+        case "1-":
+            grade = 1.33;
+            break;
+        case "2+":
+            grade = 1.66;
+            break;
+        case "2":
+            grade = 2;
+            break;
+        case "2-":
+            grade = 2.33;
+            break;
+        case "3+":
+            grade = 2.66;
+            break;
+        case "3":
+            grade = 3;
+            break;
+        case "3-":
+            grade = 3.33;
+            break;
+        case "4+":
+            grade = 3.66;
+            break;
+        case "4":
+            grade = 4;
+            break;
+        case "4-":
+            grade = 4.33;
+            break;
+        case "5":
+            grade = 5;
+            break;
+        }
+    console.log(grade);
+    grades.push(grade);
+    weights.push(weight);
+    let avgOutput = document.getElementById("avg_output");
+    let averageGrade = calculateAverage().toFixed(2);
+    avgOutput.innerHTML = `Average : ${averageGrade}`;
+    if (averageGrade >= 4.5) avgOutput.style.color = "red";
+    else avgOutput.style.color = "green";
+    }
+                        
+    function selectGrade(element) {
+        var selectedGrade = element.innerHTML;
+        if (lastElement) lastElement.style.backgroundColor = "#202020";
+        element.style.backgroundColor = "green";
+        lastElement = element;
+    }
+
+    function calculateAverage() {
+        let totalWeight = 0;
+        let totalGrades = 0;
+        for (let i = 0; i < grades.length; i++) {
+        totalWeight += parseInt(weights[i]);
+        totalGrades += grades[i] * weights[i];
+        }
+        console.log(
+        `Total weight: ${totalWeight} \n Total grades: ${totalGrades} \n Weights: ${weights} \n Grades: ${grades}`
+        );
+        return totalGrades / totalWeight;
+    }
+    
+    function refresh() {
+        setTimeout(function () {
+        location.reload();
+        }, 100);
+    }</code>
+				</p>
+			</div>
+		</div>
+		<script src="/resources/highlight.js"></script>
+		<script src="/script.js"></script>
+		<script src="/resources/projects_script.js"></script>
+	</body>
+</html>
