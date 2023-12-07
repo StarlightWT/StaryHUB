@@ -61,6 +61,7 @@
 }
 
 .project_images {
+	overflow: hidden;
 	width: 55vw;
 	padding: 0.5rem;
 	display: flex;
@@ -68,6 +69,14 @@
 	justify-content: center;
 	align-items: center;
 	background-color: var(--secondary-bg-colour);
+}
+
+.width {
+	width: 100%;
+}
+
+.height {
+	height: 100%;
 }
 
 .project_images h1 {

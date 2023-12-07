@@ -169,6 +169,11 @@ nav ul li:hover {
 	border-color: #264de5;
 }
 
+.C {
+	color: #aabbce;
+	border-color: #aabbce;
+}
+
 @media screen and (max-width: 1300px) {
 	.tags {
 		scale: 0.7;

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ServerSSH</title>
+		<link rel="stylesheet" href="/style.css" />
+		<link rel="stylesheet" href="project.css" />
+	</head>
+	<body>
+		<nav id="replace_nav"></nav>
+		<div class="container">
+			<div class="project_info">
+				<div class="info">
+					<h1>ServerSSH</h1>
+					<h2>Server SSH management</h2>
+					<p>
+						This program allows you to easily connect to computers/servers using
+						SSH.
+					</p>
+					<p>
+						You manage the connection list using the program, all you do is add
+						all your servers and then you can easily connect to them at any time
+						you wish.
+					</p>
+					<p>
+						The purpose of this program was for me to learn a bit more with
+						working with files in C and also I am not a fan of remembering IPs
+						and usernames for each virtual machine I have so, I use this myself
+						to connect and manage them whenever needed.
+					</p>
+				</div>
+				<div class="links">
+					<a href="https://github.com/StarlightWT/serverSSH"
+						>Project's repository</a
+					>
+				</div>
+			</div>
+			<div class="project_images">
+				<h1>Images</h1>
+				<img class="width" src="/resources/images/serverSSH.png" alt="" />
+			</div>
+		</div>
+		<div class="project_code">
+			<div class="code_block">
+				<h6 onclick="toggleExpand(this)">main.c</h6>
+				<p class="collapsed">
+					<!-- prettier-ignore -->
+					<code>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;dirent.h&gt;
+
+FILE *f;
+FILE *temp;
+DIR *data;
+char *servers[50];
+char *hostnames[50];
+int serverAmount = -1;
+                            
+char serverListPath[] = "C:\\serverSSH\\serverlist.txt";
+                            
+void loadServers();
+void separateServerHostname();
+void printHostList();
+void removeServer(int server);
+void addServer(char server[]);
+
+int main()
+{
+    int input, i = 0, helperInt = 0;
+    char helperChar, read[50];
+    char server[60] = "C:\\\"Program Files\"\\Git\\usr\\bin\\ssh.exe ";
+    data = opendir("C:\\serverSSH");
+    if (data == NULL)
+        system("mkdir C:\\serverSSH");
+    loadServers();
+    do
+    {
+        system("cls");
+    printf("[0]End\n");
+    printf("[1]Connect to a server\n");
+    printf("[2]Add a server\n");
+    printf("[3]Remove a server\n");
+    printf("[4]List all servers\n");
+    scanf("%d", &input);
+    system("cls");
+    switch (input)
+    {
+    case 0:
+        break;
+    case 1:
+        printf("Select server: \n");
+        printHostList();
+        scanf("%d", &input);
+                            
+        system("cls");
+        if (input >= 0)
+        {
+            strcat(server, servers[input]);
+            system(server);
+            strcpy(server, "C:\\\"Program Files\"\\Git\\usr\\bin\\ssh.exe ");
+            system("cls");
+        }
+        else
+            printf("Error: Invalid input!\n");
+        input = -1;
+        break;
+    case 2:
+        printf("[0] to cancel\nAdd a server:\nTitle:username@ip_adress\n");
+        scanf(" %s", &read);
+        if (read[0] == '0')
+            break;
+        addServer(read);
+        break;
+    case 3:
+        printf("Select server to delete:\n[-1] Cancel");
+        printHostList();
+        scanf("%d", &i);
+        if (i == -1)
+            break;
+        removeServer(i);
+        i = 0;
+        break;
+    case 4:
+        printHostList();
+        system("pause");
+        break;
+        }
+    } while (input != 0);
+
+    // Free the allocated memory
+    for (int i = 0; i <= serverAmount; i++)
+    {
+        free(servers[i]);
+        free(hostnames[i]);
+    }
+                            
+ return 0;
+}
+                            
+void separateServerHostname()
+{
+    for (int i = 0; i <= serverAmount; i++)
+    {
+        char *colonLocation = strchr(servers[i], ':');
+        int colonIndex = colonLocation - servers[i];
+        char cleanIP[50], hostname[20];
+        
+        // Get server's name
+        strncpy(hostname, servers[i], colonIndex);
+        hostname[colonIndex] = '\0';
+        strcpy(hostnames[i], hostname);
+        
+        // Get server's user@ip
+        strcpy(cleanIP, servers[i] + colonIndex + 1);
+        // printf("[%d] %s", i, servers[i]);
+        strcpy(servers[i], cleanIP);
+    }
+}
+                            
+void printHostList()
+{
+    for (int i = 0; i <= serverAmount; i++)
+    {
+        printf("[%d] %s\n", i, hostnames[i]);
+    }
+}
+                            
+void loadServers()
+{
+    if (serverAmount > -1)
+    {
+        for (int i = -1; i >= 0; i--)
+        {
+            servers[i] = NULL;
+            hostnames[i] = NULL;
+            serverAmount -= 1;
+        }
+                            
+        for (int i = 0; i <= serverAmount; i++)
+        {
+            free(servers[i]);
+            free(hostnames[i]);
+            }
+        serverAmount = -1;
+    }
+                            
+    char read[40];
+    int i = 0;
+    f = fopen(serverListPath, "r");
+    while (fgets(read, 40, f) != NULL)
+    {
+        servers[i] = strdup(read); // Allocate memory and copy the string
+        hostnames[i] = strdup(read);
+        serverAmount++;
+        i++;
+    }
+    fclose(f);
+                            
+    separateServerHostname();
+}
+                            
+void addServer(char server[])
+{
+    char read[50];
+    f = fopen(serverListPath, "a");
+    if (serverAmount > -1)
+        fprintf(f, "\n");
+    fprintf(f, server);
+    fclose(f);
+    loadServers();
+}
+                            
+void removeServer(int server)
+{
+    char ultarCoolCommand[255] = "copy temp.txt ";
+    temp = fopen("temp.txt", "w");
+    for (int i = 0; i <= serverAmount; i++)
+    {
+        if (i != server)
+            fprintf(temp, "%s:%s", hostnames[i], servers[i]);
+    }
+    fclose(temp);
+    system(strcat(ultarCoolCommand, serverListPath));
+    system("del temp.txt");
+    loadServers();
+}
+                    </code>
+				</p>
+			</div>
+		</div>
+		<script src="/resources/highlight.js"></script>
+		<script src="/script.js"></script>
+		<script src="/resources/projects_script.js"></script>
+	</body>
+</html>
