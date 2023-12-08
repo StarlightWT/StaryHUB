@@ -44,6 +44,7 @@ nav ul {
 
 nav ul li {
 	height: 50%;
+	width: max-content;
 	padding-inline: 2rem;
 	padding-block: 0.5rem;
 	margin-right: 0.5rem;

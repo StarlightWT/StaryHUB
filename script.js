@@ -12,6 +12,9 @@ function redirect(where) {
 		case "github":
 			where = "https://github.com/StarlightWT";
 			break;
+		case "support":
+			where = "https://ko-fi.com/starevelyn";
+			break;
 	}
 	window.location.href = where;
 }
