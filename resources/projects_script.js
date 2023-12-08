@@ -5,6 +5,7 @@ function select(where) {
 
 function toggleExpand(element) {
 	const codeElement = element.parentElement.children[1];
+	const titleElement = element.parentElement.children[0];
 	//calculates the height of text...
 	codeElement.style.setProperty(
 		"--height",
@@ -14,8 +15,10 @@ function toggleExpand(element) {
 	if (codeElement.classList.contains("expanded")) {
 		codeElement.classList.add("collapsed");
 		codeElement.classList.remove("expanded");
+		titleElement.classList.remove("selected");
 	} else {
 		codeElement.classList.add("expanded");
+		titleElement.classList.add("selected");
 		codeElement.classList.remove("collapsed");
 	}
 }

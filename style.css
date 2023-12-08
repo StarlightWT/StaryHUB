@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+html {
+	background-color: #150031;
+}
+
 body {
 	--background-colour: #1e1e1e;
 	--secondary-bg-colour: #353536;
