@@ -33,6 +33,9 @@ const purpleCKeywords = [
 	"\\)",
 	"case",
 	"break;",
+	"else",
+	"do",
+	"return",
 ];
 //C keywords end
 function highlight() {
