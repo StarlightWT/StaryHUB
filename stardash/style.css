@@ -67,3 +67,49 @@ body {
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.5);
 }
+
+.body {
+	background-color: rgba(0, 0, 0, 0.7);
+	height: 20rem;
+	padding-block: 1rem;
+	padding-inline: 4rem;
+	margin-top: 7rem;
+	width: max-content;
+	height: max-content;
+	margin-inline: auto;
+	border-radius: 1rem;
+}
+
+.purchases > h1 {
+	text-align: center;
+	font-size: 36px;
+	margin: 0;
+}
+
+.purchases > ul {
+	width: max-content;
+	margin-inline: auto;
+	list-style: inside square;
+	padding: 0;
+}
+
+.purchases > ul > li {
+	font-size: 20px;
+}
+
+.purchases > h2 {
+	text-align: center;
+}
+
+.purchases > h2 > span {
+	background-color: #323232;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	transition-duration: 250ms;
+}
+
+.purchases > h2 > span:hover {
+	background-color: #7821f1;
+	transition-duration: 250ms;
+	cursor: pointer;
+}
