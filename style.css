@@ -15,7 +15,6 @@ body {
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
-	height: 100vh; /*! REMOVE WHEN ADDING CONTENT TO MAIN PAGE FINALLY!!! DON'T FORGET!!!  */
 }
 
 nav {
@@ -215,4 +214,66 @@ nav ul li:hover {
 
 ::-webkit-scrollbar-track {
 	background-color: transparent;
+}
+
+.body > .title {
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 90%;
+	margin-inline: auto;
+	border-radius: 0.5rem;
+	font-size: 26px;
+}
+
+.featured {
+	width: 90%;
+	margin-inline: auto;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5rem;
+}
+
+.featured > img {
+	width: 60%;
+}
+
+.featured > .info {
+	position: relative;
+	background-color: var(--secondary-bg-colour);
+	width: 30%;
+	padding-inline: 1rem;
+	border-radius: 0.5rem;
+}
+
+.featured > .info > h1 {
+	margin: 0;
+	margin-top: 1rem;
+}
+
+.featured > .info > h2 {
+	margin: 0;
+	margin-top: 0.5rem;
+	font-size: 14px;
+	font-weight: normal;
+	border-bottom: solid black 3px;
+}
+
+.btns {
+	position: absolute;
+	bottom: 0;
+	width: 90%;
+}
+
+.btns > h2 {
+	width: 100%;
+	background-color: var(--background-colour);
+	border-radius: 0.5rem;
+	text-align: center;
+	font-size: 20px;
+	padding-block: 0.5rem;
+	transition-duration: 250ms;
+}
+
+.btns > h2:hover {
+	background-color: var(--accent-colour);
+	cursor: pointer;
 }
