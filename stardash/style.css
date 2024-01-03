@@ -128,3 +128,7 @@ body {
 	cursor: pointer;
 	background-color: #7821f1;
 }
+
+.btns {
+	display: flex;
+}
