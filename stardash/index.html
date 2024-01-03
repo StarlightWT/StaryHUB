@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>StarDash</title>
 		<link rel="stylesheet" href="style.css" />
+		<link rel="shortcut icon" href="StarDash.png" type="image/x-icon">
 	</head>
 	<body>
 		<div class="overlay">
@@ -23,7 +24,7 @@
 
 			<section class="body">
 				<div class="purchases">
-					<h1>Premium</h1>
+					<h1 class="header">Premium</h1>
 					<ul>
 						<li>Full integration of <span class="bold">all</span> modules</li>
 						<li>Access to <span class="bold">premium only</span> modules</li>
@@ -38,17 +39,38 @@
 
 					<h2>
 						<span
-							onclick="window.open('https://buy.stripe.com/4gw29D39Vaaj7MA28a', '_blank', 'width=1200,height=800');"
+							onclick="openCenteredWindow('https://buy.stripe.com/4gw29D39Vaaj7MA28a',1200,800);"
 							>Get premium!</span
 						>
 						or
 						<span
-							onclick="window.open('https://buy.stripe.com/00gcOh11N6Y7aYM9AB', '_blank', 'width=1200,height=800');"
+							onclick="openCenteredWindow('https://buy.stripe.com/00gcOh11N6Y7aYM9AB',1200,800);"
 							>Gift premium!</span
 						>
 					</h2>
 				</div>
+				<div class="community">
+					<h1 class="header">Community</h1>
+					<h2 class="btn" onclick="openCenteredWindow('https://discord.gg/8pPyZx4Rr4', '500', '600')">Discord</h2>
 			</section>
 		</div>
 	</body>
+	<script>
+		
+		function openCenteredWindow(url, width, height) {
+    var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    var left = (parentWidth - width) / 2;
+    var top = (parentHeight - height) / 2;
+
+    var newWindow = window.open(url, "_blank",`left=${left},top=${top}, width=${width},height=${height}`);
+	
+	if (newWindow) {
+        newWindow.focus();
+    }
+}
+
+		
+	</script>
 </html>
