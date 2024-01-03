@@ -1,0 +1,69 @@
+body {
+	background: url("./bg.jpg");
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	background-size: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	overflow-y: hidden;
+}
+
+.overlay {
+	padding-top: 20vh;
+	background-color: rgba(0, 0, 0, 0.6);
+	height: 100%;
+	width: 100%;
+}
+
+.wrapper {
+	/* margin-top: 20vh; */
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 2rem;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	width: max-content;
+	margin-inline: auto;
+}
+
+.wrapper > h1,
+.wrapper > h2 {
+	margin: 0;
+}
+
+#download {
+	text-align: center;
+	width: max-content;
+	margin-inline: auto;
+	background-color: #7821f1;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+#download:hover {
+	cursor: pointer;
+}
+
+.download {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.download > h3,
+.download > h2 {
+	margin: 0;
+}
+
+.download > h3 {
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.5);
+}
