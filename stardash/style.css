@@ -3,8 +3,7 @@ body {
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
-	background: url("bg.jpg") center/cover no-repeat;
-	background-position: center 80%;
+	background: url("bg.jpg") center/cover no-repeat #222f35;
 	overflow-y: hidden;
 	position: relative;
 	padding-top: 5rem;
@@ -23,17 +22,28 @@ body::before {
 	height: 100vh;
 }
 
+.container {
+	display: flex;
+	width: 100%;
+	max-width: 400px;
+	margin-inline: auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
 .wrapper {
 	position: relative;
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 2rem;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding-block: 2rem;
 	border-radius: 1rem;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	width: max-content;
+	width: 100%;
 	margin-inline: auto;
 }
 
@@ -42,10 +52,13 @@ body::before {
 	margin: 0;
 }
 
+.wrapper > h2 {
+	font-size: 20px;
+}
+
 #download {
 	text-align: center;
 	width: max-content;
-	margin-inline: auto;
 	background-color: #7821f1;
 	padding: 1rem;
 	border-radius: 0.5rem;
@@ -56,7 +69,6 @@ body::before {
 }
 
 .download {
-	margin-top: 1.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -74,37 +86,40 @@ body::before {
 	color: rgba(255, 255, 255, 0.5);
 }
 
-.body {
+.information {
+	all: inherit;
+}
+
+.information > div {
 	background-color: rgba(0, 0, 0, 0.7);
-	height: 20rem;
+	width: 100%;
 	padding-block: 1rem;
-	padding-inline: 4rem;
-	margin-top: 7rem;
-	width: max-content;
-	height: max-content;
-	margin-inline: auto;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 }
 
 .header {
 	text-align: center;
-	font-size: 36px;
+	font-size: 30px;
 	margin: 0;
 }
 
 .purchases > ul {
 	width: max-content;
 	margin-inline: auto;
-	list-style: inside square;
+	list-style: none;
+	line-height: 1.1;
 	padding: 0;
+	margin-top: 0.25rem;
+	text-align: center;
 }
 
 .purchases > ul > li {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .purchases > h2 {
 	text-align: center;
+	font-size: 18px;
 }
 
 .purchases > h2 > span {
@@ -124,8 +139,18 @@ body::before {
 	background-color: #323232;
 	width: max-content;
 	padding: 0.5rem 1rem;
+	width: 80px;
+	text-align: center;
 	border-radius: 0.5rem;
+	margin: 0;
+	font-size: 18px;
 	margin-inline: auto;
+	row-gap: 1rem;
+}
+
+.btn.hidden {
+	display: none;
+	opacity: 0;
 }
 
 .btn:hover {
@@ -135,5 +160,14 @@ body::before {
 }
 
 .btns {
+	margin-top: 0.25rem;
 	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+@media screen and (max-width: 350px) {
+	.btn.hidden {
+		display: block;
+	}
 }
