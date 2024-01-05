@@ -3,7 +3,7 @@ body {
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
-	background: url("bg.jpg") center/cover no-repeat #222f35;
+	background: url("bg.jpg") bottom/cover no-repeat #222f35;
 	overflow-y: hidden;
 	position: relative;
 	padding-top: 5rem;
@@ -169,5 +169,15 @@ body::before {
 @media screen and (max-width: 350px) {
 	.btn.hidden {
 		display: block;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.container {
+		max-width: 500px;
+	}
+	.container div {
+		padding-inline: 1rem;
+		margin-left: -0.5rem;
 	}
 }
