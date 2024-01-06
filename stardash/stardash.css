@@ -171,3 +171,38 @@ body::before {
 		display: block;
 	}
 }
+
+.progress {
+	margin-inline: auto;
+	text-align: center;
+	width: 90%;
+	height: 50px;
+}
+
+.progress > h2 {
+	font-size: 18px;
+	margin: 0;
+}
+
+.progress_border {
+	border: 3px solid white;
+	height: 20px;
+	border-radius: 1rem;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+.min,
+.max {
+	margin-inline: 1rem;
+	z-index: 2;
+}
+
+.progress_bar {
+	position: absolute;
+	background-color: green;
+	border-radius: 0.5rem;
+	height: 100%;
+	width: 9.19%;
+}
