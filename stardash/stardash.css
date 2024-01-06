@@ -176,17 +176,13 @@ body::before {
 	.container {
 		max-width: 500px;
 	}
-	.container div {
-		padding-inline: 1rem;
-		margin-left: -0.5rem;
-	}
 }
 
 .progress {
 	margin-inline: auto;
 	text-align: center;
-	width: 90%;
 	height: 50px;
+	width: 90%;
 }
 
 .progress > h2 {
@@ -195,12 +191,14 @@ body::before {
 }
 
 .progress_border {
+	margin-inline: auto;
 	border: 3px solid white;
 	height: 20px;
 	border-radius: 1rem;
 	display: flex;
 	justify-content: space-between;
 	position: relative;
+	overflow: hidden;
 }
 
 .min,
@@ -213,6 +211,8 @@ body::before {
 	position: absolute;
 	background-color: green;
 	border-radius: 0.5rem;
+	top: 0;
+	left: 0;
 	height: 100%;
 	width: 9.19%;
 }
